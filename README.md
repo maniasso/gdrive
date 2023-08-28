@@ -60,3 +60,18 @@ For example on an AWS instance the api returns a lot of `429 Too Many Requests` 
 While the same file uploads without any errors from a Linode instance.
 Gdrive has retry logic built in for these errors, but it can slow down the upload significantly.
 To check if you are affected by these errors you can run the `upload` command with these flags: `--print-chunk-errors` `--print-chunk-info`.
+
+### Compile the gdrive in case you are running different architecture
+
+1 - Install rustup ```curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh ```session relogin is needed
+
+2 - Do ```git clone https://github.com/glotlabs/gdrive.git```
+
+3 - Open project folder ```cd ./gdrive```
+
+4 - Compile ```cargo build --release```
+
+5 - Install binary ```sudo install target/release/gdrive /usr/bin/gdrive```
+
+6 - run ```gdrive version```
+
